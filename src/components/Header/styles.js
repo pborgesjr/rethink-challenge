@@ -32,6 +32,7 @@ export const Button = styled.button`
 export const Title = styled.h1`
   font-size: 2.5rem;
   margin-left: 10px;
+  color: #212121;
 
   @media (max-width: 1000px) {
     font-size: 2rem;
@@ -57,7 +58,7 @@ export const NavLinkCustom = styled(NavLink).attrs(() => ({
   activeStyle: { borderBottom: '1px solid #34b1e3', borderBottomWidth: '4px' },
 }))`
   font-size: 2rem;
-  color: #000;
+  color: #212121;
 
   & + a {
     margin: 0 10px;

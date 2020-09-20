@@ -20,7 +20,7 @@ function Header() {
   }
 
   function handleLogout() {
-    console.log('realizar logout');
+    localStorage.removeItem('user');
   }
 
   return (

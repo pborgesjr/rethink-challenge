@@ -3,7 +3,6 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { formatRelativeWithOptions } from 'date-fns/fp';
 import DefaultLayout from '~/pages/_layouts/default/';
 
 export default function RouteWrapper({
@@ -11,23 +10,22 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-  // const { signed } = store.getState().user;
-  const signed = formatRelativeWithOptions;
+  const user = JSON.parse(localStorage.getItem('user'));
 
   /** Checking if the the user is logged in and if the route that he is trying to access
    * is private, if it is, return a Redirect component to the root route
    */
-  if (!signed && isPrivate) {
-    return <Redirect to="/login" />;
+  if (!user && isPrivate) {
+    return <Redirect to="/" />;
   }
 
   /** Checking if the user is logged and if he is trying to access the login page, if so,
    * redirect him to the dashboard page */
-  if (signed && !isPrivate) {
+  if (user && !isPrivate) {
     return <Redirect to="/home" />;
   }
 
-  if (signed) {
+  if (user) {
     return (
       <Route
         {...rest}
