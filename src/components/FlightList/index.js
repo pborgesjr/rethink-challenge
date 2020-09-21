@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import { FlightsContext } from '~/util/FlightsContext';
 import { checkout } from '~/queries/flights';
@@ -70,3 +71,14 @@ function FlightList({ passengers, flightList }) {
 }
 
 export default FlightList;
+
+/** PropTypes */
+FlightList.propTypes = {
+  passengers: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  flightList: PropTypes.array,
+};
+
+FlightList.defaultProps = {
+  flightList: null,
+};
