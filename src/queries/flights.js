@@ -20,7 +20,6 @@ export const checkout = async (flightInfo) => {
     const { token } = JSON.parse(localStorage.getItem('user'));
 
     if (token) {
-      rethinkAPI.defaults.headers.Authorization = `Bearer ${token}`;
       await rethinkAPI.post(
         '/checkout',
         {
@@ -36,5 +35,23 @@ export const checkout = async (flightInfo) => {
     }
   } catch (err) {
     toast.error('Não foi possível realizar a compra!');
+  }
+};
+
+export const getMyFlights = async () => {
+  try {
+    const { token } = JSON.parse(localStorage.getItem('user'));
+
+    if (token) {
+      const response = await rethinkAPI.get('/my-flights', {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+      console.log(response.data);
+      return response.data.myFlights;
+    }
+  } catch (err) {
+    toast.error('Não foi possível realizar a busca dos seus vôos!');
   }
 };
