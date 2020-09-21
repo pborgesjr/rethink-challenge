@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import formatDate from '~/util/formatDate';
 import { getMyFlights } from '~/queries/flights';
 import {
   Container,
+  Profile,
+  Info,
   Wrapper,
   Flight,
   Item,
@@ -22,8 +24,22 @@ function MyFlights() {
     queryMyFlights();
   }, []);
 
+  const memoizedUserInfo = useMemo(() => {
+    const { user } = JSON.parse(localStorage.getItem('user'));
+    return user;
+  }, []);
+
   return (
     <Container>
+      <Profile>
+        <img src={memoizedUserInfo.avatar} alt="profile-pic" />
+        <Info>
+          <span>{memoizedUserInfo.firstName}</span>
+          <span>{memoizedUserInfo.lastName}</span>
+          <span>{memoizedUserInfo.userName}</span>
+          <span>{memoizedUserInfo.email}</span>
+        </Info>
+      </Profile>
       <Wrapper>
         {myFlights &&
           myFlights.map((flight) => (

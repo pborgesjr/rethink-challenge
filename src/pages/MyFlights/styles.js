@@ -2,7 +2,34 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Profile = styled.div`
+  display: flex;
+  background: var(--color-white);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+
+  img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+  }
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 15px;
+
+  span {
+    color: var(--color-font-primary);
+    font-size: 1.8rem;
+  }
 `;
 
 export const Wrapper = styled.div`

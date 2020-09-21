@@ -48,7 +48,6 @@ export const getMyFlights = async () => {
           Authorization: `${token}`,
         },
       });
-      console.log(response.data);
       return response.data.myFlights;
     }
   } catch (err) {
