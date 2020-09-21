@@ -1,9 +1,16 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 function Suggestions() {
-  return <div />;
+  return (
+    <Container>
+      <span>LAX</span>
+      <span>RJG</span>
+      <span>CGN</span>
+      <span>NYC</span>
+    </Container>
+  );
 }
 
 export default Suggestions;

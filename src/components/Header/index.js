@@ -37,10 +37,10 @@ function Header() {
       </Button>
 
       <DesktopNavBar>
-        <NavLinkCustom to="/home">Home</NavLinkCustom>
-        <NavLinkCustom to="/myflights">My flights</NavLinkCustom>
+        <NavLinkCustom to="/home">Início</NavLinkCustom>
+        <NavLinkCustom to="/myflights">Meus vôos</NavLinkCustom>
         <button type="button" onClick={handleLogout}>
-          Logout
+          Sair
         </button>
       </DesktopNavBar>
 

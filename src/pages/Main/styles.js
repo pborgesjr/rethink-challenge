@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to right, #34b1e3, #24708f);
   padding: 20px;
 
   form {
@@ -39,31 +38,7 @@ export const RadioInputContainer = styled.div`
 
 export const DateInputContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-
-  input {
-    height: 40px;
-    max-width: 200px;
-    font-size: 2rem;
-    border: 0;
-    background: #fff;
-    color: #424242;
-  }
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #424242;
-  border-radius: 5px;
-  padding-left: 10px;
-  background: #fff;
-
-  label {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #212121;
-  }
+  justify-content: space-between;
 `;
 
 export const SearchButton = styled.button`

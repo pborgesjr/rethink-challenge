@@ -14,7 +14,7 @@ export default createGlobalStyle`
 		outline: 0;
 	}
 	html, body, #root {
-    background: #f5f5f5;
+    background: linear-gradient(to right, #34b1e3, #24708f);
     font-size: 62.5%;
     height: 100%;
 	}

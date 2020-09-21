@@ -1,23 +1,27 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { MdSearch } from 'react-icons/md';
 
+import { SearchFlightsContext } from '~/util/SearchFlightsContext';
+import Input from '~/components/Input';
+import FlightList from '~/components/FlightList';
+import { searchFlights } from '~/queries/flights';
 import {
   Container,
   RadioInputContainer,
   DateInputContainer,
-  InputContainer,
   SearchButton,
 } from './styles';
 
 function Main() {
+  const { flightList, setFlightList } = useContext(SearchFlightsContext);
   const [formData, setFormData] = useState({
-    options: '1',
-    origem: 'São Paulo - Congonhas',
-    destino: 'Rio de Janeiro - Galeão',
-    partida: '20/09/2020',
-    retorno: '29/09/2020',
-    pessoas: 2,
+    options: '2',
+    origin: 'GIG',
+    destination: 'GRU',
+    departure1: '2020-09-28',
+    departure2: '',
+    passengers: 1,
   });
 
   function handleInputChange(event) {
@@ -28,10 +32,10 @@ function Main() {
     });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(formData);
+    setFlightList(await searchFlights(formData));
   }
 
   return (
@@ -60,64 +64,56 @@ function Main() {
         </RadioInputContainer>
 
         <DateInputContainer>
-          <InputContainer>
-            <label htmlFor="origem">Saio de</label>
-            <input
-              type="text"
-              id="origem"
-              name="origem"
-              value={formData.origem}
-              onChange={handleInputChange}
-              placeholder="Digite uma cidade"
-            />
-          </InputContainer>
-          <InputContainer>
-            <label htmlFor="destino">Vou para</label>
-            <input
-              type="text"
-              id="destino"
-              name="destino"
-              value={formData.destino}
-              onChange={handleInputChange}
-              placeholder="Digite uma cidade"
-            />
-          </InputContainer>
+          <Input
+            legend="Saio de"
+            type="text"
+            id="origin"
+            name="origin"
+            value={formData.origin}
+            onChange={handleInputChange}
+            placeholder="Digite uma cidade"
+          />
 
-          <InputContainer>
-            <label htmlFor="partida">Saída</label>
-            <input
-              type="text"
-              id="partida"
-              name="partida"
-              value={formData.partida}
-              onChange={handleInputChange}
-              placeholder="04/03/95"
-            />
-          </InputContainer>
+          <Input
+            legend="Vou para"
+            type="text"
+            id="destination"
+            name="destination"
+            value={formData.destination}
+            onChange={handleInputChange}
+            placeholder="Digite uma cidade"
+          />
 
-          <InputContainer>
-            <label htmlFor="retorno">Retorno</label>
-            <input
+          <Input
+            legend="Ida"
+            type="text"
+            id="departure1"
+            name="departure1"
+            value={formData.departure1}
+            onChange={handleInputChange}
+            placeholder="04/03/95"
+          />
+          {formData.options === '1' && (
+            <Input
+              legend="Retorno"
               type="text"
-              id="retorno"
-              name="retorno"
-              value={formData.retorno}
+              id="departure2"
+              name="departure2"
+              value={formData.retdeparture2orno}
               onChange={handleInputChange}
               placeholder="10/03/95"
             />
-          </InputContainer>
+          )}
 
-          <InputContainer>
-            <label htmlFor="pessoas">Pessoas</label>
-            <input
-              type="number"
-              id="pessoas"
-              name="pessoas"
-              value={formData.pessoas}
-              onChange={handleInputChange}
-              placeholder="1 Pessoa"
-            />
-          </InputContainer>
+          <Input
+            legend="Pessoas"
+            type="number"
+            id="passengers"
+            name="passengers"
+            value={formData.passengers}
+            onChange={handleInputChange}
+            placeholder="1 Pessoa"
+          />
 
           <SearchButton type="submit">
             <MdSearch size={24} color="#fff" />
@@ -125,6 +121,8 @@ function Main() {
           </SearchButton>
         </DateInputContainer>
       </form>
+
+      <FlightList passengers={formData.passengers} flightList={flightList} />
     </Container>
   );
 }
