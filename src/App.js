@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { SearchFlightsContext } from '~/util/SearchFlightsContext';
+import { FlightsContext } from '~/util/FlightsContext';
 import history from '~/services/history';
 import Routes from '~/routes';
 import GlobalStyle from '~/styles/GlobalStyles';
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Router history={history}>
-      <SearchFlightsContext.Provider
+      <FlightsContext.Provider
         value={{
           flightList,
           setFlightList,
@@ -22,7 +22,7 @@ function App() {
         }}
       >
         <Routes />
-      </SearchFlightsContext.Provider>
+      </FlightsContext.Provider>
       <GlobalStyle />
       <ToastContainer autoClose={3000} style={{ fontSize: '2rem' }} />
     </Router>

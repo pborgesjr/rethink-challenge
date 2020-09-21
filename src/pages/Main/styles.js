@@ -21,14 +21,14 @@ export const RadioInputContainer = styled.div`
   input {
     width: 16px;
     height: 24px;
-    color: #424242;
+    color: var(--color-font-primary);
   }
 
   label {
     margin-left: 10px;
     font-size: 1.4rem;
     font-weight: 600;
-    color: #212121;
+    color: var(--color-white);
   }
 
   label:nth-of-type(1) {
@@ -46,13 +46,14 @@ export const SearchButton = styled.button`
   justify-content: center;
   width: 150px;
   border: 0;
-  background: #30ab51;
+  background: var(--color-button-unhovered);
   font-size: 2rem;
   border-radius: 5px;
-  color: #fff;
+  color: var(--color-white);
   transition: background 0.2s ease-in-out;
 
   &:hover {
-    background: #237a3b;
+    background: var(--color-button-hovered);
+    box-shadow: var(--box-shadow);
   }
 `;

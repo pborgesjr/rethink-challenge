@@ -2,7 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { MdSearch } from 'react-icons/md';
 
-import { SearchFlightsContext } from '~/util/SearchFlightsContext';
+import { FlightsContext } from '~/util/FlightsContext';
 import Input from '~/components/Input';
 import FlightList from '~/components/FlightList';
 import { searchFlights } from '~/queries/flights';
@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 function Main() {
-  const { flightList, setFlightList } = useContext(SearchFlightsContext);
+  const { flightList, setFlightList } = useContext(FlightsContext);
   const [formData, setFormData] = useState({
     options: '2',
     origin: 'GIG',
@@ -91,7 +91,7 @@ function Main() {
             name="departure1"
             value={formData.departure1}
             onChange={handleInputChange}
-            placeholder="04/03/95"
+            placeholder="2020-09-28"
           />
           {formData.options === '1' && (
             <Input
@@ -101,7 +101,7 @@ function Main() {
               name="departure2"
               value={formData.retdeparture2orno}
               onChange={handleInputChange}
-              placeholder="10/03/95"
+              placeholder="2020-09-28"
             />
           )}
 

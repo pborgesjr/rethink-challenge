@@ -20,7 +20,7 @@ export const LoginFormContainer = styled.div`
     label {
       font-size: 1.4rem;
       font-weight: 600;
-      color: #212121;
+      color: var(--color-white);
       margin-bottom: 4px;
     }
 
@@ -34,7 +34,7 @@ export const LoginFormContainer = styled.div`
     button {
       height: 40px;
       border: 0;
-      background: linear-gradient(to right, #34b1e3, #24708f);
+      background: var(--color-button-unhovered);
       color: #fff;
       border-radius: 5px;
       font-size: 1.4rem;
@@ -42,8 +42,8 @@ export const LoginFormContainer = styled.div`
       transition: all ease 0.2s;
 
       &:hover {
-        box-shadow: 5px 5px 5px 0px rgba(33, 33, 33, 0.4);
-        background: linear-gradient(to right, #24708f, #1d5a73);
+        box-shadow: var(--box-shadow);
+        background: var(--color-button-hovered);
       }
     }
   }
@@ -65,7 +65,7 @@ export const Title = styled.h1`
   font-size: 4rem;
   font-style: bold;
   margin-left: 10px;
-  color: #212121;
+  color: var(--color-white);
 `;
 
 export const InputContainer = styled.div`

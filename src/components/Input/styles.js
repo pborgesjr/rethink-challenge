@@ -7,12 +7,12 @@ export const InputContainer = styled.div`
   flex-direction: column;
   border-radius: 5px;
   padding: 0 5px;
-  background: #fff;
+  background: var(--color-white);
 
   span {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #212121;
+    color: var(--color-font-secondary);
   }
 
   input {
@@ -20,7 +20,7 @@ export const InputContainer = styled.div`
     max-width: 200px;
     font-size: 2rem;
     border: 0;
-    background: #fff;
-    color: #424242;
+    background: var(--color-white);
+    color: var(--color-font-primary);
   }
 `;

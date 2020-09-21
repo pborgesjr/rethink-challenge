@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 
-import { SearchFlightsContext } from '~/util/SearchFlightsContext';
+import { FlightsContext } from '~/util/FlightsContext';
 import { Container } from './styles';
 
 function Fare({ fare, passengers, flight }) {
-  const { order, setOrder } = useContext(SearchFlightsContext);
+  const { order, setOrder } = useContext(FlightsContext);
   const [isSelected, setIsSelected] = useState(false);
 
   function handleClick() {

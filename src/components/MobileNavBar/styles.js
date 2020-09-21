@@ -27,10 +27,10 @@ export const Container = styled.div`
 
 export const NavLinkCustom = styled(NavLink).attrs(() => ({
   activeStyle: {
-    color: '#34b1e3',
-    borderBottom: '1px solid #34b1e3',
+    color: 'var(--color-primary)',
+    borderBottom: '1px solid var(--color-primary)',
     borderBottomWidth: '2px',
   },
 }))`
-  color: #fff;
+  color: var(--color-white);
 `;

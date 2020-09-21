@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const Flight = styled.div`
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 5px;
   padding: 10px 15px;
 
@@ -24,8 +24,8 @@ export const Flight = styled.div`
 
   button {
     border: 0;
-    background: #30ab51;
-    color: #fff;
+    background: var(--color-button-unhovered);
+    color: var(--color-white);
     font-size: 1.5rem;
     width: 100px;
     border-radius: 5px;
@@ -33,8 +33,8 @@ export const Flight = styled.div`
     transition: all 0.2s ease;
 
     &:hover {
-      background: #237a3b;
-      box-shadow: 0px 0px 8px 1px rgba(133, 133, 133, 0.75);
+      background: var(--color-button-hovered);
+      box-shadow: var(--box-shadow);
     }
   }
 `;
@@ -51,12 +51,16 @@ export const FlightItems = styled.div`
 
   li {
     font-size: 1.8rem;
-    color: #424242;
+    color: var(--color-font-primary);
+
+    span {
+      font-weight: 600;
+    }
   }
 `;
 export const FareList = styled.div`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #c4c4c4;
+  border-top: 1px solid var(--color-border);
   padding-top: 20px;
 `;

@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 
-import { SearchFlightsContext } from '~/util/SearchFlightsContext';
+import { FlightsContext } from '~/util/FlightsContext';
 import { checkout } from '~/queries/flights';
-
 import Fare from '~/components/Fare';
+import formatDate from '~/util/formatDate';
+
 import { Container, Flight, FlightInfo, FlightItems, FareList } from './styles';
 
 function FlightList({ passengers, flightList }) {
-  const { order } = useContext(SearchFlightsContext);
+  const { order } = useContext(FlightsContext);
 
   async function handlePurchase() {
     checkout(order);
@@ -21,12 +22,30 @@ function FlightList({ passengers, flightList }) {
             <Flight key={flight.uid}>
               <FlightInfo>
                 <FlightItems>
-                  <li>{flight.airline.name}</li>
-                  <li>{flight.departure.airport.code}</li>
-                  <li>{flight.arrival.airport.code}</li>
-                  <li>{flight.departure.date}</li>
-                  <li>{flight.arrival.date}</li>
-                  <li>{flight.cabin}</li>
+                  <li>
+                    <span>Companhia: </span>
+                    {flight.airline.name}
+                  </li>
+                  <li>
+                    <span>Origem: </span>
+                    {flight.departure.airport.code}
+                  </li>
+                  <li>
+                    <span>Destino: </span>
+                    {flight.arrival.airport.code}
+                  </li>
+                  <li>
+                    <span>Saída: </span>
+                    {formatDate(flight.departure.date)}
+                  </li>
+                  <li>
+                    <span>Chegada: </span>
+                    {formatDate(flight.arrival.date)}
+                  </li>
+                  <li>
+                    <span>Classe: </span>
+                    {flight.cabin}
+                  </li>
                 </FlightItems>
                 <FareList>
                   {flightList &&

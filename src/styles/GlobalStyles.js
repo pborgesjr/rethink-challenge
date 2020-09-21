@@ -34,4 +34,15 @@ export default createGlobalStyle`
 	button {
 		cursor: pointer;
 	}
+  :root {
+    --color-primary: #34b1e3;
+    --color-secondary: #24708f;
+    --color-font-primary: #424242;
+    --color-font-secondary: #212121;
+    --color-border: #c4c4c4;
+    --color-white: #fff;
+    --color-button-unhovered: #237a3b;
+    --color-button-hovered: #30ab51;
+    --box-shadow: 5px 5px 5px 0px rgba(33, 33, 33, 0.4);
+  }
 `;
