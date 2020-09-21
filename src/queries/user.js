@@ -23,3 +23,12 @@ export const login = async ({ username, password }) => {
     toast.error('Por favor, insira os dados corretamente!');
   }
 };
+
+export const logout = () => {
+  try {
+    localStorage.removeItem('user');
+    history.push('/');
+  } catch (err) {
+    toast.error('Erro ao tentar realizar logout!');
+  }
+};

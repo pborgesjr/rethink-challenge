@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MdReorder } from 'react-icons/md';
 
+import { logout } from '~/queries/user';
+
 import {
   Container,
   Left,
@@ -20,7 +22,7 @@ function Header() {
   }
 
   function handleLogout() {
-    localStorage.removeItem('user');
+    logout();
   }
 
   return (

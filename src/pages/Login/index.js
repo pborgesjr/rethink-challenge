@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
-import { login } from '~/queries/login';
+import { login } from '~/queries/user';
 
 import logo from '~/assets/logo.svg';
 
